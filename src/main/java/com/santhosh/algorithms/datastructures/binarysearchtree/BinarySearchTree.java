@@ -158,6 +158,44 @@ public class BinarySearchTree<T extends Comparable<T>> {
         traverseInOrderAndPrint(node.right);
     }
 
+    public void traversePreOrderAndPrint() {
+        traversePreOrderAndPrint(root);
+    }
+
+    private void traversePreOrderAndPrint(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println("Book = " + node.data);
+        traversePreOrderAndPrint(node.left);
+        traversePreOrderAndPrint(node.right);
+    }
+
+    public T findGreatestValue() {
+        return findGreatestValue(root);
+    }
+
+    private T findGreatestValue(Node node) {
+        while (node.right != null) {
+            node = node.right;
+        }
+        return node.data;
+    }
+
+    public void traversePostOrderAndPrint() {
+        traversePostOrderAndPrint(root);
+    }
+
+    private void traversePostOrderAndPrint(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        traversePostOrderAndPrint(node.left);
+        traversePostOrderAndPrint(node.right);
+        System.out.println(node.data);
+    }
+
 
     // It contains actual data & references of left & right node
     private class Node {

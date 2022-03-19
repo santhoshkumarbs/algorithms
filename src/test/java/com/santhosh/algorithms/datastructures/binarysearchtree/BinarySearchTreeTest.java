@@ -148,6 +148,80 @@ class BinarySearchTreeTest {
         tree.traverseInOrderAndPrint();
     }
 
+    @Test
+    void testFindingGreatestValueInBinarySearchTree() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+
+        tree.add(1);
+        tree.add(5);
+        tree.add(9);
+        tree.add(2);
+        tree.add(4);
+        tree.add(10);
+        tree.add(6);
+        tree.add(3);
+        tree.add(8);
+
+        int value = tree.findGreatestValue();
+        assertThat(value).isEqualTo(10);
+    }
+
+    @Test
+    void testPreOrderTraversal() {
+        // should have a tree like this
+        //                                  "Moby Dick"
+        //                         "Great                   "Robinson
+        //                          Expectations"               crusoe"
+        //                    "Alice in       "Lord of     "Pride and           "The Odyssey"
+        //                      wonderland"    flies"        Prejudice"
+
+        BinarySearchTree<String> tree = new BinarySearchTree<>();
+
+        // level 0
+        tree.add("Moby Dick");
+
+        // level 1
+        tree.add("Great Expectations");
+        tree.add("Robinson Crusoe");
+
+        // level 2
+        tree.add("Alice in Wonderland");
+        tree.add("Lord of Flies");
+        tree.add("Pride and Prejudice");
+        tree.add("The Odyssey");
+
+        tree.traversePreOrderAndPrint();
+    }
+
+
+    @Test
+    void testPostOrderTraversal() {
+        // should have a tree like this
+        //                                  "Moby Dick"
+        //                         "Great                   "Robinson
+        //                          Expectations"               crusoe"
+        //                    "Alice in       "Lord of     "Pride and           "The Odyssey"
+        //                      wonderland"    flies"        Prejudice"
+
+        BinarySearchTree<String> tree = new BinarySearchTree<>();
+
+        // level 0
+        tree.add("Moby Dick");
+
+        // level 1
+        tree.add("Great Expectations");
+        tree.add("Robinson Crusoe");
+
+        // level 2
+        tree.add("Alice in Wonderland");
+        tree.add("Lord of Flies");
+        tree.add("Pride and Prejudice");
+        tree.add("The Odyssey");
+
+        tree.traversePostOrderAndPrint();
+    }
+
+
 
 
 
