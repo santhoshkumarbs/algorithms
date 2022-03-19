@@ -77,7 +77,50 @@ class BinarySearchTreeTest {
         assertThat(tree.size()).isEqualTo(1);
         assertThat(tree.remove('B')).isFalse();
         assertThat(tree.size()).isEqualTo(1);
+
+        // Try removing an element which does exist
+        tree.add('B');
+        assertThat(tree.size()).isEqualTo(2);
+        assertThat(tree.remove('B')).isTrue();
+        assertThat(tree.size()).isEqualTo(1);
+        assertThat(tree.height()).isEqualTo(1);
+
+        // Try removing the root
+        boolean removed = tree.remove('A');
+        assertThat(removed).isTrue();
+        assertThat(tree.size()).isEqualTo(0);
+        assertThat(tree.height()).isEqualTo(0);
     }
+
+    @Test
+    void testRemoveWhenTwoChildIsPresent() {
+        // Tree should look like
+        //           M
+        //        J    S
+        //       B   N   Z
+        //     A
+
+        BinarySearchTree<Character> tree = new BinarySearchTree<>();
+
+        // level 0
+        tree.add('M');
+
+        // level 1
+        tree.add('J');
+        tree.add('S');
+
+        // level 3
+        tree.add('B');
+        tree.add('N');
+        tree.add('Z');
+
+        // level 4
+        tree.add('A');
+
+        boolean removed = tree.remove('S');
+        assertThat(removed).isTrue();
+    }
+
 
 
 
