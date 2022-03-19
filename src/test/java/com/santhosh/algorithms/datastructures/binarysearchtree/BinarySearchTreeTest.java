@@ -69,6 +69,16 @@ class BinarySearchTreeTest {
         assertThat(tree.add('B')).isTrue();
     }
 
+    @Test
+    void testRemove() {
+        // Try removing an element which don't exist
+        BinarySearchTree<Character> tree = new BinarySearchTree<>();
+        tree.add('A');
+        assertThat(tree.size()).isEqualTo(1);
+        assertThat(tree.remove('B')).isFalse();
+        assertThat(tree.size()).isEqualTo(1);
+    }
+
 
 
 }

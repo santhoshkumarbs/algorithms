@@ -79,6 +79,25 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return height;
     }
 
+    public int size() {
+        return nodeCount;
+    }
+
+    // Remove value from this binary tree if it exists, O(n)?
+    public boolean remove(T element) {
+        // make sure node we want to remove actually exists before we remove it
+        if (contains(element)) {
+            root = remove(root, element);
+            nodeCount--;
+            return true;
+        }
+        return false;
+    }
+
+    private Node remove(Node node, T element) {
+        return null;
+    }
+
 
     // It contains actual data & references of left & right node
     private class Node {
@@ -93,6 +112,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean isEmpty() {
-        return nodeCount == 0;
+        return size() == 0;
     }
 }
