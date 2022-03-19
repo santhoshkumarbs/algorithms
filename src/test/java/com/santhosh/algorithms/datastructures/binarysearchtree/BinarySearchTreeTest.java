@@ -121,6 +121,34 @@ class BinarySearchTreeTest {
         assertThat(removed).isTrue();
     }
 
+    @Test
+    void testInOrderTraversal() {
+        // should have a tree like this
+        //                                  "Moby Dick"
+        //                         "Great                   "Robinson
+        //                          Expectations"               crusoe"
+        //                    "Alice in       "Lord of     "Pride and           "The Odyssey"
+        //                      wonderland"    flies"        Prejudice"
+
+        BinarySearchTree<String> tree = new BinarySearchTree<>();
+
+        // level 0
+        tree.add("Moby Dick");
+
+        // level 1
+        tree.add("Great Expectations");
+        tree.add("Robinson Crusoe");
+
+        // level 2
+        tree.add("Alice in Wonderland");
+        tree.add("Lord of Flies");
+        tree.add("Pride and Prejudice");
+        tree.add("The Odyssey");
+
+        tree.traverseInOrderAndPrint();
+    }
+
+
 
 
 

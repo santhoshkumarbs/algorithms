@@ -145,6 +145,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return node;
     }
 
+    public void traverseInOrderAndPrint() {
+        traverseInOrderAndPrint(root);
+    }
+
+    private void traverseInOrderAndPrint(Node node) {
+        if (node == null) {
+            return;
+        }
+        traverseInOrderAndPrint(node.left);
+        System.out.println(node.data);
+        traverseInOrderAndPrint(node.right);
+    }
+
 
     // It contains actual data & references of left & right node
     private class Node {
